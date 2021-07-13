@@ -8,7 +8,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var tableV: UITableView!
+    var imageVC: ViewController?
+    
     @IBOutlet weak var pickedMonkeyLabel: UILabel!
     @IBOutlet weak var selectedMonkeyTextField: UITextField!
     var monkeysList: [String] = []
@@ -42,10 +45,6 @@ class ViewController: UIViewController {
 
         selectedMonkeyTextField.inputView = picker
         selectedMonkeyTextField.inputAccessoryView = toolbar()
-        var string: NSMutableAttributedString = pickedMonkeyLabel.attributedText?.mutableCopy() as? NSMutableAttributedString
-        string.addAttribute(.link, value: "https://google.com", range: NSRange(location: 6, length: string.length - 6))
-        
-        pickedMonkeyLabel.attributedText = string
     }
 }
 
@@ -77,8 +76,13 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 }
 
-extension ViewController: UITextViewDelegate {
-    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        <#code#>
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return monkeysList.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell" , for: indexPath)
+        cell.textLabel?.text = monkeysList[indexPath.row]
+        return cell
     }
 }

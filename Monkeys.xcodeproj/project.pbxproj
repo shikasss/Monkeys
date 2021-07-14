@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C27C236E269EED51000780FC /* MonkeyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C236D269EED51000780FC /* MonkeyTableViewCell.swift */; };
 		C2B25F03269DFB3900D48721 /* JSON.json in Resources */ = {isa = PBXBuildFile; fileRef = C2B25F02269DFB3900D48721 /* JSON.json */; };
 		EDD4B1672682421600DAC358 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4B1662682421600DAC358 /* AppDelegate.swift */; };
 		EDD4B1692682421600DAC358 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4B1682682421600DAC358 /* SceneDelegate.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C27C236D269EED51000780FC /* MonkeyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonkeyTableViewCell.swift; sourceTree = "<group>"; };
 		C2B25F02269DFB3900D48721 /* JSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JSON.json; sourceTree = "<group>"; };
 		EDD4B1632682421600DAC358 /* Monkeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monkeys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD4B1662682421600DAC358 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				EDD4B1662682421600DAC358 /* AppDelegate.swift */,
 				EDD4B1682682421600DAC358 /* SceneDelegate.swift */,
 				EDD4B16A2682421600DAC358 /* ViewController.swift */,
+				C27C236D269EED51000780FC /* MonkeyTableViewCell.swift */,
 				EDD4B16C2682421600DAC358 /* Main.storyboard */,
 				EDD4B16F2682421800DAC358 /* Assets.xcassets */,
 				EDD4B1712682421800DAC358 /* LaunchScreen.storyboard */,
@@ -272,6 +275,7 @@
 				EDD4B16B2682421600DAC358 /* ViewController.swift in Sources */,
 				EDD4B1672682421600DAC358 /* AppDelegate.swift in Sources */,
 				EDD4B19D2682453700DAC358 /* Monkeys.swift in Sources */,
+				C27C236E269EED51000780FC /* MonkeyTableViewCell.swift in Sources */,
 				EDD4B1692682421600DAC358 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

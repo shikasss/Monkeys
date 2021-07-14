@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var pickedMonkeyLabel: UILabel!
     @IBOutlet weak var selectedMonkeyTextField: UITextField!
-    var monkeysList: [String] = []
+    var monkeysList: [(String,String)] = [("Мартышки","Азия"), ("Горилы","Африка")]
     let picker = UIPickerView()
 
     func toolbar() -> UIToolbar {
@@ -32,13 +32,13 @@ class ViewController: UIViewController {
     }
 
     @objc func selectItem() {
-        selectedMonkeyTextField.text = "\(picker.selectedRow(inComponent: 0) + 1) " + monkeysList[picker.selectedRow(inComponent: 1)]
+        selectedMonkeyTextField.text = "\(picker.selectedRow(inComponent: 0) + 1) " + monkeysList[picker.selectedRow(inComponent: 1)].0
         selectedMonkeyTextField.resignFirstResponder()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        monkeysList = Parser.singletone.parseNamesFromJSON()?.list ?? []
+       
 
         picker.delegate = self
         picker.dataSource = self
@@ -69,7 +69,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         case 0:
             return "\(row + 1)"
         case 1:
-            return monkeysList[row]
+            return monkeysList[row].0
         default:
             return ""
         }
@@ -81,8 +81,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         return monkeysList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell" , for: indexPath)
-        cell.textLabel?.text = monkeysList[indexPath.row]
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell" , for: indexPath) as? MonkeyTableViewCell
+        
+        cell?.monkeyNameLabel.text = monkeysList[indexPath.row].0
+        cell?.monkeyAreaLabel.text = monkeysList[indexPath.row].1
+        
+        return cell ?? UITableViewCell()
     }
 }
